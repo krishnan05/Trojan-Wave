@@ -1,0 +1,56 @@
+<%- include("partials/header") %>
+
+   <title>Your Dashboard</title>
+ </head>
+ <body>
+   <nav class="navbar">
+     <!-- LOGO -->
+     <div class="logo">TROJAN WAVE</div>
+     <!-- NAVIGATION MENU -->
+     <!-- <ul class="nav-links"> -->
+       <!-- USING CHECKBOX HACK -->
+       <input type="checkbox" id="checkbox_toggle" />
+       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+       <!-- NAVIGATION MENUS -->
+
+        <li class="home"><a href="/" class="hyp">Home</a></li>
+         <li class="services">
+           <a href="/"><img src="user.png" class="profile" alt=""></a>
+           <!-- DROPDOWN MENU -->
+           <ul class="dropdown">
+             <li><a href="/" class="hyp" >My Profile</a></li>
+             <li><a href="/" class="hyp">Update Profile</a></li>
+           </ul>
+         </li>
+
+     </ul>
+   </nav>
+<button class="open-button btn btn-outline-dark" onclick="openForm()">ADD TASK</button>
+
+
+<div class="form-popup" id="myForm">
+  <form class="form-container">
+
+  <div><label for="email"><b>Task Description</b></label>
+    <input type="text" placeholder="Description" name="email" required>
+  </div>
+  <div><label ><b >Task Type</b></label></div>
+  <div class="marg-bottom" >
+    <label for="break"><b>Break</b></label>
+    <input type="radio" name="break" required>
+    <label for="meeting"><b>Meeting</b></label>
+    <input type="radio" name="meeting" >
+    <label for="work"><b>Work</b></label>
+    <input type="radio" name="work" ></div>
+  <div class="marg-bottom"><label for="appt">Start Time</label>
+  <input type="time" id="appt" name="appt" value="00:00"></div>
+    <div class="marg-bottom"><label for="appt" >Hours required</label>
+      <input type="time" id="appt" name="appt" value="00:00"></div>
+  
+
+    <button type="submit" class="btn">Add Task</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>
