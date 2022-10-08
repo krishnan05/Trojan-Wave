@@ -37,4 +37,31 @@ const UserSchema =({
 });
 
 const User = Mongoose.model("user", UserSchema);
-module.exports = User;
+
+
+const UserDBSchema =({
+
+  uName:{
+  type:UserSchema
+  },
+  description:{
+      type:String
+  }, 
+  taskType:{
+      type:String
+  }, 
+  sTime:{
+      type:String
+  },
+  hourT:{
+      type:Number
+  }
+
+
+});
+
+const UserDB = Mongoose.model("userDB", UserDBSchema);
+module.exports ={
+  User:User,
+  UserDB:UserDB
+}
