@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./db");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _ = require("lodash");
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -23,17 +24,35 @@ app.get("/",function(req,res){
 
 app.post("/",function(req,res){
 
-    const username = req.body.uname;
-    const password = req.body.pass;
-
+    const usernam = req.body.uname;
+    const passwor = req.body.pass;
     
-    User.findOne({name:username},function(err,foundUname){
-
-        res.redirect("/" + username);
+    User.findOne({username:usernam},function(err,user){
+        
+        if(user.password === passwor){
+            //res.send("Success");
+            
+            res.redirect("/" + usernam);
+        }
+        else{
+           
+            res.send("Error");
+            res.redirect("/");
+        }
+        
     });
 
+});
 
-})
+app.get('/:userN',function(req,res){
+    const requestedUser = _.lowerCase(req.params.userN);
+
+    User.find({username:requestedUser},function(err,found){
+        
+        res.render("employee",{EmpName:found.username})
+    });
+});
+
 app.listen(3000, function() {
     console.log("Server started on port 3000");
 });
