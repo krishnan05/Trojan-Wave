@@ -1,6 +1,6 @@
 <%- include("partials/header") %>
 
-   <title>Your Dashboard</title>
+   <title><%= EmpName %></title>
  </head>
  <body>
    <nav class="navbar">
@@ -25,30 +25,36 @@
 
      </ul>
    </nav>
+   <h1 ><%= EmpName %></h1>
 <button class="open-button btn btn-outline-dark" onclick="openForm()">ADD TASK</button>
 
 
 <div class="form-popup" id="myForm">
-  <form class="form-container">
+  <form class="form-container" method="post" action="/<%= EmpName %>">
 
   <div><label for="email"><b>Task Description</b></label>
     <input type="text" placeholder="Description" name="email" required>
   </div>
   <div><label ><b >Task Type</b></label></div>
-  <div class="marg-bottom" >
-    <label for="break"><b>Break</b></label>
-    <input type="radio" name="break" required>
-    <label for="meeting"><b>Meeting</b></label>
-    <input type="radio" name="meeting" >
-    <label for="work"><b>Work</b></label>
-    <input type="radio" name="work" ></div>
-  <div class="marg-bottom"><label for="appt">Start Time</label>
-  <input type="time" id="appt" name="appt" value="00:00"></div>
+  <div class="marg-bottom" id="radioBtn" >
+    <label for="task">Task</label>
+
+    <select name="task" id="task">
+
+        <option value="break">Break</option>
+        <option value="meeting">Meeting</option>
+        <option value="work">Work</option>
+
+    </select>
+   
+</div>
+  <div class="marg-bottom"><label for="start">Start Time</label>
+  <input type="time" id="appt" name="start" value="00:00"></div>
     <div class="marg-bottom"><label for="appt" >Hours required</label>
       <input type="time" id="appt" name="appt" value="00:00"></div>
   
 
-    <button type="submit" class="btn">Add Task</button>
+    <button type="submit" class="btn" name="button" value="<%=EmpName%>">Add Task</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
