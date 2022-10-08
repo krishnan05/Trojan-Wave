@@ -13,11 +13,11 @@ app.use(express.static("public"));
 //Connecting the Database
 connectDB();
 
-const User = require("./user");
+const User = require("./model/user");
 
 app.get("/",function(req,res){
 
-    res.sendFile(__dirname+"/login.html");
+    res.render("login");
     
 });
 
@@ -26,7 +26,7 @@ app.post("/",function(req,res){
     const username = req.body.uname;
     const password = req.body.pass;
 
-    User.collection.insertOne(item);
+    
     User.findOne({name:username},function(err,foundUname){
 
         res.redirect("/" + username);
