@@ -4,20 +4,20 @@ const Mongoose = require("mongoose");
 const UserSchema =({
   username: {
     type: String,
-    unique: true,
-    required: true,
+   
+    required: true
   },
   password: {
     type: String,
     minlength: 6,
-    required: true,
+    //required: true,
   },
   Mail_ID:{
     type:String,
     trim:true,
     lowercase:true,
-    unique:true,
-    required:true,
+   
+    //required:true,
     
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
     immutable:true
@@ -42,7 +42,13 @@ const User = Mongoose.model("user", UserSchema);
 const UserDBSchema =({
 
   uName:{
-  type:UserSchema
+  type:UserSchema,
+
+  },
+  Day:{
+    type:Date,
+    required:true
+    
   },
   description:{
       type:String
@@ -54,7 +60,7 @@ const UserDBSchema =({
       type:String
   },
   hourT:{
-      type:Number
+      type:String
   }
 
 

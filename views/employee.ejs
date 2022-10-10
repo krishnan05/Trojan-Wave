@@ -30,7 +30,7 @@
 
 
 <div class="form-popup" id="myForm">
-  <form class="form-container" method="post" action="/<%= EmpName %>">
+  <form class="form-container" method="post" action="" id="form1">
 
   <div><label for="email"><b>Task Description</b></label>
     <input type="text" placeholder="Description" name="email" required>
@@ -53,8 +53,8 @@
     <div class="marg-bottom"><label for="appt" >Hours required</label>
       <input type="time" id="appt" name="appt" value="00:00"></div>
   
-
-    <button type="submit" class="btn" name="button" value="<%=EmpName%>">Add Task</button>
+      <input type="date" name="date" max="date">
+    <button type="submit" class="btn" name="button" >Add Task</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
