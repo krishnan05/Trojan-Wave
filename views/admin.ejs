@@ -1,75 +1,58 @@
-<%- include("partials/header") -%>
-<h1>
-    ADMIN PROFILE
-</h1>
-<h3>
-    Name- XXX
-</h3>
-<h4>
-    User Name-
-</h4>
-<h4>
-    Password-
-</h4>
-<!-- On tables -->
-<table class="table-primary">...</table>
-<table class="table-secondary">...</table>
-<table class="table-success">...</table>
-<table class="table-danger">...</table><!-- On tables -->
-<table class="table-primary">...</table>
-<table class="table-secondary">...</table>
-<table class="table-success">...</table>
-<table class="table-danger">...</table>
-<table class="table-warning">...</table>
-<table class="table-info">...</table>
-<table class="table-light">...</table>
-<table class="table-dark">...</table>
+<%- include("partials/header") %>
 
-<!-- On rows -->
-<tr class="table-primary">...</tr>
-<tr class="table-secondary">...</tr>
-<tr class="table-success">...</tr>
-<tr class="table-danger">...</tr>
-<tr class="table-warning">...</tr>
-<tr class="table-info">...</tr>
-<tr class="table-light">...</tr>
-<tr class="table-dark">...</tr>
+   <title>Admin</title>
+ </head>
+ <body>
+   <nav class="navbar">
+     <!-- LOGO -->
+     <div class="logo">Admin-TrojanWave</div>
+     <!-- NAVIGATION MENU -->
+     <!-- <ul class="nav-links"> -->
+       <!-- USING CHECKBOX HACK -->
+       <input type="checkbox" id="checkbox_toggle" />
+       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+       <!-- NAVIGATION MENUS -->
 
-<!-- On cells (`td` or `th`) -->
-<tr>
-  <td class="table-primary">...</td>
-  <td class="table-secondary">...</td>
-  <td class="table-success">...</td>
-  <td class="table-danger">...</td>
-  <td class="table-warning">...</td>
-  <td class="table-info">...</td>
-  <td class="table-light">...</td>
-  <td class="table-dark">...</td>
-</tr>
-<table class="table-warning">...</table>
-<table class="table-info">...</table>
-<table class="table-light">...</table>
-<table class="table-dark">...</table>
+        <li class="home"><a href="/" class="hyp">Home</a></li>
+         <li class="services">
+         
+           <!-- DROPDOWN MENU -->
+           <ul class="dropdown">
+             <li><a href="/" class="hyp" >View Profile</a></li>
+            
+           </ul>
+         </li>
 
-<!-- On rows -->
-<tr class="table-primary">...</tr>
-<tr class="table-secondary">...</tr>
-<tr class="table-success">...</tr>
-<tr class="table-danger">...</tr>
-<tr class="table-warning">...</tr>
-<tr class="table-info">...</tr>
-<tr class="table-light">...</tr>
-<tr class="table-dark">...</tr>
+     </ul>
+   </nav>
 
-<!-- On cells (`td` or `th`) -->
-<tr>
-  <td class="table-primary">...</td>
-  <td class="table-secondary">...</td>
-  <td class="table-success">...</td>
-  <td class="table-danger">...</td>
-  <td class="table-warning">...</td>
-  <td class="table-info">...</td>
-  <td class="table-light">...</td>
-  <td class="table-dark">...</td>
-</tr>
-<%- include("partials/footer") -%>
+<button class="open-button btn btn-outline-dark" onclick="openForm()">ADD Employee</button>
+
+
+<div class="form-popup" id="myForm">
+  <form class="form-container" method="post" action="/admin" id="form">
+
+  <div><label for="UsName"><b>Employee User name</b></label>
+    <input type="text" name="UsName" required>
+  </div>
+  <div><label for="email"><b>Email</b></label>
+    <input type="email" name="email" required>
+  </div>
+  <div><label ><b>Password</b></label></div>
+    <input type="password" name="pass" required>
+    <div><label for="contact"><b>Contact Number</b></label>
+      <input type="number" maxlength="10" name="contact" required>
+    </div>
+
+  <div class="marg-bottom"><label for="DoJ">Date of Joining</label>
+  <input type="date" id="appt" name="DoJ" ></div>
+  <div><label for="department"><b>Department</b></label>
+    <input type="text" name="department" required>
+  </div>
+    <button type="submit" class="btn" name="button" >Add Task</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+</div>
+
+<%- include("partials/footer") %>
