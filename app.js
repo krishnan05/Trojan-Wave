@@ -29,7 +29,7 @@ app.post("/",function(req,res){
     const passwor = req.body.pass;
     if(usernam=="admin"){
         if(passwor=='adminpass'){
-            res.render("admin");
+            res.redirect("/admin");
         } else{
             res.redirect("/");
         }
@@ -63,6 +63,33 @@ app.post("/",function(req,res){
 //         res.render("employee",{EmpName:found.username})
 //     });
 // });
+app.get('/admin',function(req,res){
+    res.render("admin");
+});
+
+app.post("/admin",function(req,res){
+
+    var newEmp = new User({
+        username: req.body.UsName,
+        password:req.body.pass,
+        Mail_ID :req.body.email,
+        ContactNumber:req.body.contact,
+        Department:req.body.department,
+        JoiningDate:req.body.DoJ
+    });
+    newEmp.save(function(err){
+        if(!err){
+            res.redirect("/admin");
+        } else{
+            res.redirect("/admin");
+            console.log(err);
+        }
+    });
+
+});
+
+
+
 
 app.get('/:userN',function(req,res){
     const requestedUser = _.lowerCase(req.params.userN);
@@ -103,11 +130,14 @@ app.post("/:userN",function(req,res){
                     console.log(err);
                 }
             });
+            
+
         });
 
 });
 
 
-app.listen(3000, function() {
+
+app.listen(process.env.PORT || 3000, function() {
     console.log("Server started on port 3000");
 });
